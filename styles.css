@@ -1,0 +1,886 @@
+@import url("https://use.typekit.net/xsd7wls.css");
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #532422;
+    --text-color: #e9c4c2;
+    --body-text-color: white;
+    --body-text-color-o: black;
+    --primary-color: rgb(35, 35, 35);
+    --primary-color-o: rgb(180, 180, 180);
+    --navbar-color-dark: #e9c4c2;
+    --navbar-color-light: #532422;
+  }
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --bg-color: #532422;
+    --text-color: #e9c4c2;
+    --body-text-color: white;
+    --body-text-color-o: black;
+    --primary-color: rgb(35, 35, 35);
+    --primary-color-o: rgb(180, 180, 180);
+    --navbar-color-dark: #e9c4c2;
+    --navbar-color-light: #532422;
+}
+  
+/* Light mode */
+[data-theme="light"] {
+    --bg-color: #532422;
+    --text-color: #e9c4c2;
+    --body-text-color: black;
+    --body-text-color-o: white;
+    --primary-color: white;
+    --primary-color-o: rgb(35, 35, 35);
+    --navbar-color-dark: #532422;
+    --navbar-color-light: #e9c4c2;
+}
+  
+
+body{
+    margin: 0;
+    font-family: "montserrat";
+    font-weight: 400;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition for theme change */
+}
+
+button{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "montserrat";
+    font-weight: 400;
+    font-size: 1.2rem;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease, font-size 0.3s ease;
+}
+
+button:hover{
+    color: white;
+}
+
+/* Navbar */
+.navbarTop{
+    display: flex;
+    position: relative;
+    z-index: 100;
+    background-color: var(--bg-color);
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5vw;
+}
+
+.navbarTop a{
+    text-decoration: none;
+}
+
+.navbarTop ul{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin-right: 40px;
+}
+
+.navbarTop ul a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease, font-size 0.3s ease;
+}
+
+.navbarTop ul a:hover{
+    color: white;
+    text-shadow: none;
+}
+
+/* .logo{
+    display: flex;
+    margin-left: 0rem;
+    padding: 0rem 1rem;
+    font-size: 2rem;
+    align-items: center;
+    color: #e9c4c2;
+    overflow: hidden;
+} */
+
+.logo{
+  display: flex;
+}
+
+.logo a{
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-left: 2rem;
+    transition: all .3s ease;
+}
+
+.sidebar-is-open .logo a {
+  transform: translate(16rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s ease;
+}
+
+.logo a:hover{
+    color: white;
+}
+
+.logo img{
+    width: 6rem;
+    margin-right: 0.5rem;
+    z-index: 1;
+}
+
+.logoText{
+    transform: translateX(-45%);
+    transition: opacity .4s ease, transform .4s ease, z-index .4s ease;
+    opacity: 0;
+    z-index: -1;
+}
+
+.logo:hover .logoText{
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 0;
+}
+
+/* Hide the toggle button completely on desktop layouts */
+.nav-toggle {
+    display: none;
+  }
+
+/* This sits nicely below navbarTop and above the footer */
+.main-layout {
+    display: block;
+    width: 100%;
+    min-height: calc(100vh - 16vw); /* Fills screen height accounting for navbar/footer spaces */
+    position: relative;
+}
+
+/* This targets your actual page contents next to the sidebar */
+.page-content {
+    flex-grow: 1;                 /* Automatically fills all remaining horizontal space */
+    padding: 8vw;
+    box-sizing: border-box;
+}
+
+.myWorkNavbarSide {
+  position: fixed; 
+  top: 0;
+  left: -16rem; /* Hidden off-screen by default */
+  width: 15rem;
+  min-width: 15rem;
+  height: 100vh;
+  background-color: color-mix(in srgb, var(--bg-color) 85%, var(--text-color));
+  box-shadow: black 0 0 0.8rem;
+  z-index: 110;
+  box-sizing: border-box;
+  transition: left 0.3s ease;
+  overflow: visible;
+}
+
+.myWorkNavlinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.myWorkNavlinks a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    font-weight: 400;
+    padding: 1vw;
+    transition: all .2s ease;
+}
+
+.myWorkNavlinks a:hover {
+    background-color: var(--bg-color);
+}
+
+
+/* DROPDOWN (My work page) */
+
+/* The list item containing the dropdown must act as the anchor point */
+.myWorkNavlinks li {
+    position: relative; 
+}
+
+.myWorkNavbardropdown {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+    color: var(--navbar-color-dark);
+    
+    /* 1. Remove it entirely from structural document flow */
+    position: absolute;   
+    z-index: 999;
+    
+    /* 2. Position it as a classic FLY-OUT to the right of the bar */
+    top: 0;
+    left: 100%;           
+    width: 15rem;         /* Gives the sub-menu its own safe width constraint */
+    
+    /* 3. Smooth visibility states */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.myWorkNavbardropdown li {
+    display: block;
+}
+
+.myWorkNavbardropdown li a {
+    padding-left: 1.5vw;
+}
+
+/* 4. Trigger visibility seamlessly on hover without moving adjacent grid structures */
+.myWorkNavlinks li:hover .myWorkNavbardropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* The short summary of me on the index */
+.indexAboutMe{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.indexAboutMeBox{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+#indexNameTitle{
+    font-size: 2.5rem;
+}
+
+.portrait{
+    display: flex;
+    width: 40%;
+}
+
+.portrait img{
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+    text-align: center;
+}
+
+.box h1{
+    font-size: 4rem;
+}
+
+.container-project{
+  display: flex;
+  justify-content: center;
+}
+
+.box-project{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  color: var(--body-text-color);
+  text-align: center;
+}
+
+.box-project-deathtrip{
+  display: flex;
+  flex-direction: column;
+  padding: 1vw;
+  width: 50%;
+  color: var(--body-text-color);
+}
+
+.box-project-deathtrip h1{
+  font-size: 3rem;
+}
+
+.box-project h1{
+  font-size: 3rem;
+}
+
+.box-project h2{
+  font-size: 2rem;
+}
+
+.box-project p{
+  width: 60%;
+}
+
+.textBox{
+    width: 50%;
+    color: var(--body-text-color);
+
+}
+
+.container-contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+    font-size: 1.5rem;
+}
+
+.box-contact{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50vw;
+    color: var(--body-text-color);
+    font-size: 1.5rem;
+}
+
+.contact-box{
+    display: flex;
+}
+
+.contact-box p a{
+    color: var(--body-text-color);
+    text-decoration: none;
+}
+
+.about-container{
+    display: flex;
+    justify-content: center;
+}
+
+.about-box{
+    display: flex;
+    flex-direction: column;
+    color: var(--body-text-color);
+    padding: 5vw;
+    max-width: 30vw;
+}
+
+#pdf-download-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pdf-download-button{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    margin-top: 5vw;
+    border-radius: 20px;
+    box-shadow: var(--body-text-color) 0 0 3px;
+}
+
+.pdf-download-button p a{
+    padding: 1vw;
+    text-decoration: none;
+    color: var(--body-text-color);
+}
+
+/* Deathtrip video styling */
+#deathtrip-videos iframe{
+    width: 40vw;
+    height: 22vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+/* Game section under my Work */
+.gameMain{
+    display: flex;
+    justify-content: center;
+}
+
+.aboutGameMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--body-text-color);
+}
+
+.gameMainBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.gameMainBox_embed{
+    display: flex;
+    height: 28.125vw;
+}
+
+.gameMainBox_embed iframe{
+    width: 50vw;
+    height: 28.125vw;
+    border: none;
+    display: block;
+}
+
+.gameMainBox_download-container{
+    display: flex;
+    justify-content: center;
+}
+
+.gameMainBox_download-boks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameMainBox_download-boks-button{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    width: 10rem;
+    border-radius: 1rem;
+    box-shadow: var(--body-text-color) 0 0 4px;
+}
+
+.gameMainBox_download-boks-button a{
+    font-weight: 700;
+}
+
+.gameMainBox_download-boks-text{
+    color: var(--body-text-color);
+}
+
+/* footer design */
+footer{
+    display: flex;
+    width: 100%;
+    margin-top: 8vw;
+    justify-content: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.footerMain{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    background-color: var(--bg-color);
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+}
+
+.footerMainBox{
+    width: 25%;
+}
+
+.footerMainBox p{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.footerMainBox_nav{
+    text-decoration: none;
+    color: var(--text-color);
+    list-style: none;
+}
+
+.footerMainBox_nav :hover{
+    color: white;
+}
+
+/* RESPONSIVE MEDIA QUERIES (FOR MOBILE & TABLET DEVICES) */
+   @media screen and (max-width: 768px) {
+  
+    /* --- 1. Global & Typography Resets --- */
+    button {
+      font-size: 1rem; /* Swapping out 'vw' so text stays readable on phones */
+    }
+  
+    /* --- 2. Top Navigation Overrides --- */
+    .navbarTop {
+      flex-direction: column; /* Stack logo and navigation menu vertically if needed */
+      gap: 15px;
+      padding: 20px;
+    }
+  
+    .navbarTop ul {
+      margin-right: 0;
+      gap: 20px;
+      padding: 0;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .navbarTop ul a {
+      font-size: 1rem; /* Clear, finger-tappable text sizing */
+    }
+  
+    .logo {
+      margin: 0;
+    }
+
+    .logo a{
+      font-size: 1rem;
+    }
+  
+    /* --- 3. Main Workspace Stack Layout --- */
+    .main-layout {
+      flex-direction: column; /* Stacks the sidebar above the main content area */
+      min-height: auto;
+    }
+  
+    .page-content {
+      padding: 30px 20px; /* Safer spacing values for mobile viewport borders */
+    }
+  
+    /* --- 6. Index Page Content Realignment --- */
+    .indexAboutMeBox {
+      flex-direction: column; /* Stack your headshot/design elements over text details */
+      align-items: center;
+      width: 90%;
+      gap: 40px;
+    }
+  
+    #indexNameTitle {
+      font-size: 2.2rem; /* Halts gigantic scale text clipping over elements */
+      text-align: center;
+    }
+  
+    .textBox {
+      width: 100%;
+      margin-left: 0;
+      text-align: center;
+    }
+
+    .container-project{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .box-project{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--body-text-color);
+      text-align: center;
+    }
+    
+    .box-project-deathtrip{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+      width: 100%;
+      color: var(--body-text-color);
+    }
+
+    #deathtrip-videos iframe{
+      width: 80vw;
+      height: 60vw;
+      padding-top: 1vw;
+      padding-bottom: 1vw;
+    }
+
+    .gameMainBox_embed{
+      width: 80vw;
+      height: 45.4vw;
+    }
+
+    .gameMainBox_embed iframe{
+    width: 80vw;
+    height: 45.4vw;
+    border: none;
+    display: block;
+    }
+
+    .box h1{
+      font-size: 3rem;
+    }
+
+    .box-project{
+      width: 100%;
+    }
+
+    .box-project-deathtrip h1{
+      font-size: 2.5rem;
+    }
+
+    .box-project-deathtrip h2{
+      font-size: 1.5rem;
+    }
+
+    .box-project h1{
+      font-size: 1.5rem;
+    }
+    
+    .box-project h2{
+      font-size: 1rem;
+    }
+
+    .about-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 20vh;
+    }
+
+    .about-box{
+      max-width: 80vw;
+      min-width: 80vw;
+    }
+
+    .pdf-download-button{
+      width: 200px;
+    }
+
+    .box-contact{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50vw;
+      color: var(--body-text-color);
+      font-size: 1.5rem;
+    }
+
+    .contact-box{
+      display: flex;
+      margin-top: 10vh;
+      width: 50vw;
+    }
+  
+    /* Adjust geometric pseudo background wrappers snugly around the picture */
+    .portrait {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .portrait img {
+      width: 70%;
+      max-width: 280px;
+    }
+  
+    .portrait::before, 
+    .portrait::after {
+      height: 100%;
+      width: 50%;
+      max-height: 250px;
+    }
+  
+    /* --- 7. Footer Redesigns --- */
+    footer {
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  
+    .footerMain {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .footerMainBox{
+      width: 100%;
+    }
+  
+    #footerMainBox_2 {
+      margin-left: 0;
+    }
+
+    .myWorkNavbarSide {
+      position: fixed; 
+      top: 0;
+      left: -16rem; /* Hidden off-screen by default */
+      width: 10rem;
+      min-width: 10rem;
+      height: 100vh;
+      background-color: color-mix(in srgb, var(--bg-color) 85%, var(--text-color));
+      box-shadow: black 0 0 0.8rem;
+      z-index: 110;
+      box-sizing: border-box;
+      transition: left 0.3s ease;
+      overflow: visible;
+    }
+
+    /* --- New Hamburger Button Construction --- */
+  .nav-toggle {
+    display: block; /* Show the button on mobile viewports */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+  }
+
+  /* Create the middle bar of the hamburger icon */
+  .hamburger {
+    display: block;
+    position: relative;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: background-color 0.3s ease;
+  }
+
+  /* Create top and bottom bars using pseudo-elements */
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    left: 0;
+    transition: transform 0.3s ease, top 0.3s ease;
+  }
+
+  .hamburger::before { top: -8px; }
+  .hamburger::after { top: 8px; }
+
+  /* --- Smooth Morph to 'X' When Open --- */
+  .nav-toggle.open .hamburger {
+    background-color: transparent; /* Hides middle bar */
+  }
+  .nav-toggle.open .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .nav-toggle.open .hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* --- Mobile Layout State Control --- */
+  .navbarTop {
+    flex-direction: row; /* Keep logo and menu button on the same line */
+    justify-content: space-between;
+    flex-wrap: wrap; 
+  }
+
+  .navbarTop ul {
+    display: none; /* Hide the menu layout by default on mobile */
+    flex-direction: column; 
+    width: 100%;
+    text-align: center;
+    padding: 20px 0 10px 0;
+    gap: 15px;
+  }
+
+  /* When JS injects the '.active' class, reveal the menu cleanly */
+  .navbarTop ul.active {
+    display: flex;
+  }
+}
+
+/* --- Updated Side Nav Toggle Layout --- */
+.side-nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  z-index: 110;         /* HIGHEST LAYER: Keeps it on top of everything so links don't hide it */
+  color: var(--text-color);
+  background: none;
+  padding: 1rem;
+  cursor: pointer;
+  transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+/* --- The Morphing Triangle Arrowhead --- */
+.side-hamburger {
+  position: relative;
+  display: block;
+  width: 0;
+  height: 0;
+  background-color: transparent; /* No background line needed */
+  
+  /* Creates a right-pointing triangle using borders */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid var(--text-color, #333);
+  
+  /* Centers the rotation point */
+  transform-origin: center left; 
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Clear out the previous pseudo-elements since they aren't needed */
+.side-hamburger::before,
+.side-hamburger::after {
+  content: none; 
+}
+
+/* --- ACTIVE STATE: Rotate to point Left --- */
+.side-nav-toggle.active .side-hamburger {
+  /* Spins 180 degrees to face left and shifts to counter border geometry */
+  transform: rotate(180deg) translateX(7px); 
+}
+
+/* Smooth layout animations */
+.myWorkNavbarSide.open {
+  left: 0 !important;
+}
+
+.side-nav-toggle.active {
+  left: 16rem;              /* Slides smoothly next to the open drawer */
+}
+
+
+/* --- 4. The JavaScript Toggle States --- */
+/* Slides sidebar out */
+.myWorkNavbarSide.open {
+  left: 0 !important;
+}
+
+/* Pushes the toggle button outward simultaneously so it stays visible */
+.side-nav-toggle.active {
+  left: 16.5rem;
+}
+
+
+/* --- 5. Clean up Mobile Specifics --- */
+@media screen and (max-width: 768px) {
+  .myWorkNavbarSide {
+    border-bottom: none !important;
+  }
+  .myWorkNavlinks {
+    flex-direction: column !important; /* Overrides your mobile horizontal flex layout */
+  }
+  .myWorkNavlinks li {
+    text-align: left !important;
+    width: 100%;
+  }
+  .myWorkNavlinks li a {
+    padding: 1rem;
+  }
+  /* Keeps flyout drop-down functional on mobile drawer rows */
+  .myWorkNavbardropdown {
+    position: absolute !important;
+    left: 100% !important;
+    top: 0 !important;
+    width: 150px !important;
+  }
+}
+  

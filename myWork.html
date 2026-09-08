@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+    <title>Tristan H. Auve</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbarTop">
+        <div class="logo">
+            <!-- Permanent Trigger Button for the Side Drawer -->
+            <button id="side-nav-toggle" class="side-nav-toggle" aria-label="Toggle menu">
+                <span class="side-hamburger"></span>
+            </button>
+            <a href="index.html">Tristan H. Auve</a>
+        </div>
+      
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+      
+        <ul id="navMenu">
+            <li><a href="aboutMe.html">About me</a></li>
+            <li><a href="myWork.html">My work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light theme">
+                <span class="theme-button">Theme</span>
+            </button>
+        </ul>
+    </nav>
+
+    <!--  -->
+
+    <div class="main-layout"> <!-- /main-layout -->
+
+        <div class="side-nav-wrapper">
+
+             <!-- Side Navbar -->
+            <nav class="myWorkNavbarSide" id="myWorkSidebar">
+                <ul class="myWorkNavlinks">
+                <li><a href="#dashboard">Dashboard</a></li>
+    
+                <!-- Dropdown Parent -->
+                <li class="dropdown-parent">
+                    <a href="#films">Films</a>
+                    <ul class="myWorkNavbardropdown">
+                        <li><a href="#deathtrip">Deathtrip</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#game-remembrance">Remembrance</a></li>
+
+                </ul>
+            </nav>   
+        </div>
+       
+        <main class="page-content">
+
+            <section id="dashboard">
+                <div class="container">
+                    <div class="box">
+                        <h1>My work</h1>
+                        <h2>
+
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+            <section id="films">
+
+            </section>
+
+            <section id="deathtrip">
+                <div style="margin-bottom: 20vh;" class="container-project">
+                    <div class="box-project-deathtrip">
+                        <h1>Deathtrip</h1>
+                        <h2 style="margin-top: -2rem;">Kjenner du fortsatt veien i fylla?</h2>
+                        <p>
+                            Deathtrip is a norwegian attitude campaign where schools all over the
+                            world compete to make the best campaign. The theme is to stop young
+                            people driving under the influence.
+                            <br><br>
+                            In my group, I had multiple roles.
+                            I played as an actor in our films, helped develop the core idea
+                            and produce a storyboard, as well as
+                            editing the main film and the SoMe film.
+                            <br><br>
+                            To the right you can see the two videos I edited. The top video is the main
+                            film we made which is 1 minute and 45 seconds long. The other video is
+                            a shorter edit of the main video made to be published on social media platforms
+                            such as TikTok and Instagram. It is just 15 seconds long but still maintains the
+                            core concept of our campaign.
+                        </p>
+                    </div>
+                    <div class="box-project" id="deathtrip-videos">
+                        <iframe 
+                            width="560" 
+                            height="315" 
+                            name="Deathtrip"
+                            src="https://www.youtube-nocookie.com/embed/3-4iilt27fg?si=KpYpVqC_Q0XySJ1o" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+
+                        <iframe 
+                            src="https://www.youtube.com/embed/mxWZABt5KMU" 
+                            loading="lazy"
+                            name="Deathtrip-SoMe"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            title="YouTube video player" 
+                            allowfullscreen
+                            frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="game-remembrance">
+                <div class="container-project">
+                    <div class="box-project">
+                        <h1>Remembrance - game made in Godot 4.5</h1>
+                        <p>
+                            Remembrance is a game I made all by myself in the span of a month.
+                            Everythin; the idea, the assets, and the code, is made by me. 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gameMain">
+                    <div class="gameMainBox">
+                        <div class="gameMainBox_embed">
+                            <iframe 
+                                frameborder="0" 
+                                src="https://itch.io/embed-upload/19152730?color=333333" 
+                                allowfullscreen="" 
+                                width="1280" 
+                                height="740">
+                                <a href="https://mcozelot.itch.io/remembrance">Play Remembrance on itch.io</a>
+                            </iframe>
+                        </div>
+
+                        <!-- Download button -->
+                        <div class="gameMainBox_download-container">
+                            <div class="gameMainBox_download-boks">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div> <!-- /main-layout -->
+
+    <footer>
+        <div class="footerMain">
+            <div class="footerMainBox">
+                <p>tristan.h.auve@gmail.com</p>
+            </div>
+            <div class="footerMainBox">
+                <p>+47 406 38 818</p>
+            </div>
+            <div class="footerMainBox_nav">
+                <p>
+                    <a class="footerMainBox_nav" href="index.html">Home</a>
+                </p>
+                <p>
+                    <a class="footerMainBox_nav" href="aboutMe.html">About me</a>
+                </p>
+                <p>
+                    <a class="footerMainBox_nav" href="contact.html">Contact</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
