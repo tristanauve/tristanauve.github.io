@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
           sidebar.classList.remove('open');
           sideToggleBtn.classList.remove('active');
+          document.body.classList.remove('sidebar-is-open')
         });
       });
   
