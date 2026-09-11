@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Your Existing Top Theme Button Logic ---
     const toggleBtn = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   
-    // --- Your Existing Top Nav Hamburger Button Logic ---
     const toggleButton = document.querySelector(".nav-toggle");
     const navMenu = document.getElementById("navMenu");
     if (toggleButton && navMenu) {
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   
-    // --- Safe Side Navbar Drawer Toggle Logic ---
     const sideToggleBtn = document.getElementById('side-nav-toggle');
     const sidebar = document.getElementById('myWorkSidebar');
   
@@ -63,10 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const iframe = document.querySelector('iframe'); // Change to your iframe selector if needed
+  const iframe = document.querySelector('iframe');
 
 iframe.addEventListener('load', () => {
-    // Intercept focus events and prevent scrolling
     iframe.contentWindow.addEventListener('focus', (e) => {
         e.preventDefault();
     }, { passive: false });

@@ -38,11 +38,11 @@
 }
 
 html{
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }  
 
-/* 2. Tell sections to stop short of the very top to accommodate the navbar */
-section, [id] {
+/* sections stop short of the very top to accommodate the navbar */
+section, [id]{
   scroll-margin-top: 10vh; 
 }
 
@@ -51,7 +51,7 @@ body{
     font-family: "montserrat";
     font-weight: 400;
     background-color: var(--primary-color);
-    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition for theme change */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 button{
@@ -82,15 +82,15 @@ button:hover{
 }
 
 #stickyNavbarTop{
-  display: flex;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: var(--bg-color);
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5vw;
-  min-height: 4rem;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-color);
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5vw;
+    min-height: 4rem;
 }
 
 .navbarTop a{
@@ -116,18 +116,8 @@ button:hover{
     text-shadow: none;
 }
 
-/* .logo{
-    display: flex;
-    margin-left: 0rem;
-    padding: 0rem 1rem;
-    font-size: 2rem;
-    align-items: center;
-    color: #e9c4c2;
-    overflow: hidden;
-} */
-
 .logo{
-  display: flex;
+    display: flex;
 }
 
 .logo a{
@@ -139,11 +129,11 @@ button:hover{
     transition: all .3s ease;
 }
 
-.sidebar-is-open .logo a {
-  transform: translate(16rem);
-  opacity: 0;
-  pointer-events: none;
-  transition: all .3s ease;
+.sidebar-is-open .logo a{
+    transform: translate(16rem);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
 }
 
 .logo a:hover{
@@ -169,49 +159,49 @@ button:hover{
     z-index: 0;
 }
 
-/* Hide the toggle button completely on desktop layouts */
-.nav-toggle {
+/* Hide the toggle button on desktop layouts */
+.nav-toggle{
     display: none;
   }
 
-/* This sits nicely below navbarTop and above the footer */
-.main-layout {
+/* This sits below navbarTop and above the footer */
+.main-layout{
     display: block;
     width: 100%;
     min-height: calc(100vh - 16vw); /* Fills screen height accounting for navbar/footer spaces */
     position: relative;
 }
 
-/* This targets your actual page contents next to the sidebar */
-.page-content {
-    flex-grow: 1;                 /* Automatically fills all remaining horizontal space */
+/* This targets actual page contents next to the sidebar */
+.page-content{
+    flex-grow: 1;
     padding: 8vw;
     box-sizing: border-box;
 }
 
-.myWorkNavbarSide {
-  position: fixed; 
-  top: 0;
-  left: -16rem; /* Hidden off-screen by default */
-  width: 15rem;
-  min-width: 15rem;
-  height: 100vh;
-  background-color: color-mix(in srgb, var(--bg-color) 85%, var(--text-color));
-  box-shadow: black 0 0 0.8rem;
-  z-index: 110;
-  box-sizing: border-box;
-  transition: left 0.3s ease;
-  overflow: visible;
+.myWorkNavbarSide{
+    position: fixed; 
+    top: 0;
+    left: -16rem; /* Hidden off-screen by default */
+    width: 15rem;
+    min-width: 15rem;
+    height: 100vh;
+    background-color: color-mix(in srgb, var(--bg-color) 85%, var(--text-color));
+    box-shadow: black 0 0 0.8rem;
+    z-index: 110;
+    box-sizing: border-box;
+    transition: left 0.3s ease;
+    overflow: visible;
 }
 
-.myWorkNavlinks {
+.myWorkNavlinks{
     list-style: none;
     margin: 0;
     padding: 0;
     width: 100%;
 }
 
-.myWorkNavlinks a {
+.myWorkNavlinks a{
     text-decoration: none;
     color: var(--text-color);
     display: block;
@@ -226,29 +216,25 @@ button:hover{
 
 
 /* DROPDOWN (My work page) */
-
-/* The list item containing the dropdown must act as the anchor point */
-.myWorkNavlinks li {
+.myWorkNavlinks li{
     position: relative; 
 }
 
-.myWorkNavbardropdown {
+.myWorkNavbardropdown{
     list-style: none;
     margin: 0;
     padding: 0;
     background-color: var(--primary-color);
     color: var(--navbar-color-dark);
     
-    /* 1. Remove it entirely from structural document flow */
+    /* Remove it from structural document flow */
     position: absolute;   
     z-index: 999;
     
-    /* 2. Position it as a classic FLY-OUT to the right of the bar */
     top: 0;
     left: 100%;           
-    width: 15rem;         /* Gives the sub-menu its own safe width constraint */
+    width: 15rem;
     
-    /* 3. Smooth visibility states */
     opacity: 0;
     visibility: hidden;
     transform: translateX(-5px);
@@ -256,15 +242,15 @@ button:hover{
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.myWorkNavbardropdown li {
+.myWorkNavbardropdown li{
     display: block;
 }
 
-.myWorkNavbardropdown li a {
+.myWorkNavbardropdown li a{
     padding-left: 1.5vw;
 }
 
-/* 4. Trigger visibility seamlessly on hover without moving adjacent grid structures */
+/* Trigger visibility seamlessly on hover without moving adjacent grid structures */
 .myWorkNavlinks li:hover .myWorkNavbardropdown {
     opacity: 1;
     visibility: visible;
@@ -315,47 +301,46 @@ button:hover{
 }
 
 .container-project{
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .box-project{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  color: var(--body-text-color);
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    color: var(--body-text-color);
+    text-align: center;
 }
 
 .box-project-deathtrip{
-  display: flex;
-  flex-direction: column;
-  padding: 1vw;
-  width: 50%;
-  color: var(--body-text-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1vw;
+    width: 50%;
+    color: var(--body-text-color);
 }
 
 .box-project-deathtrip h1{
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 .box-project h1{
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 .box-project h2{
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .box-project p{
-  width: 60%;
+    width: 60%;
 }
 
 .textBox{
     width: 50%;
     color: var(--body-text-color);
-
 }
 
 .container-contact{
@@ -398,9 +383,9 @@ button:hover{
 }
 
 #pdf-download-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .pdf-download-button{
@@ -539,15 +524,14 @@ footer{
 
 /* RESPONSIVE MEDIA QUERIES (FOR MOBILE & TABLET DEVICES) */
    @media screen and (max-width: 768px) {
-  
-    /* --- 1. Global & Typography Resets --- */
+    
     button {
-      font-size: 1rem; /* Swapping out 'vw' so text stays readable on phones */
+      font-size: 1rem;
     }
   
-    /* --- 2. Top Navigation Overrides --- */
+    /* --- Top Navigation Overrides --- */
     .navbarTop {
-      flex-direction: column; /* Stack logo and navigation menu vertically if needed */
+      flex-direction: column;
       gap: 15px;
       padding: 20px;
     }
@@ -561,7 +545,7 @@ footer{
     }
   
     .navbarTop ul a {
-      font-size: 1rem; /* Clear, finger-tappable text sizing */
+      font-size: 1rem;
     }
   
     .logo {
@@ -569,21 +553,21 @@ footer{
       align-items: center;
     }
 
-    .logo a{
+    .logo a {
       font-size: 1rem;
     }
   
-    /* --- 3. Main Workspace Stack Layout --- */
+    /* --- Main Workspace Stack Layout --- */
     .main-layout {
-      flex-direction: column; /* Stacks the sidebar above the main content area */
+      flex-direction: column;
       min-height: auto;
     }
   
     .page-content {
-      padding: 30px 20px; /* Safer spacing values for mobile viewport borders */
+      padding: 30px 20px;
     }
   
-    /* --- 6. Index Page Content Realignment --- */
+    /* --- Index Page Content Realignment --- */
     .indexAboutMeBox {
       flex-direction: column; /* Stack your headshot/design elements over text details */
       align-items: center;
@@ -592,7 +576,7 @@ footer{
     }
   
     #indexNameTitle {
-      font-size: 2.2rem; /* Halts gigantic scale text clipping over elements */
+      font-size: 2.2rem;
       text-align: center;
     }
   
@@ -715,7 +699,6 @@ footer{
       text-decoration: none;
     }
   
-    /* Adjust geometric pseudo background wrappers snugly around the picture */
     .portrait {
       width: 100%;
       display: flex;
@@ -734,7 +717,7 @@ footer{
       max-height: 250px;
     }
   
-    /* --- 7. Footer Redesigns --- */
+    /* --- Footer Redesigns --- */
     footer {
       font-size: 0.9rem;
       margin-top: 40px;
@@ -758,6 +741,8 @@ footer{
   
     #footer_2{
       text-align: center;
+      text-decoration: none;
+      color: var(--text-color);
     }
   
     #footer_3{
@@ -789,7 +774,7 @@ footer{
     z-index: 1001;
   }
 
-  /* Create the middle bar of the hamburger icon */
+  /* The middle bar of the hamburger icon */
   .hamburger {
     display: block;
     position: relative;
@@ -799,7 +784,7 @@ footer{
     transition: background-color 0.3s ease;
   }
 
-  /* Create top and bottom bars using pseudo-elements */
+  /* Top and bottom bars using pseudo-elements */
   .hamburger::before,
   .hamburger::after {
     content: "";
@@ -814,7 +799,7 @@ footer{
   .hamburger::before { top: -8px; }
   .hamburger::after { top: 8px; }
 
-  /* --- Smooth Morph to 'X' When Open --- */
+  /* Morph to 'X' When Open */
   .nav-toggle.open .hamburger {
     background-color: transparent; /* Hides middle bar */
   }
@@ -843,19 +828,19 @@ footer{
     gap: 15px;
   }
 
-  /* When JS injects the '.active' class, reveal the menu cleanly */
+  /* When JS injects the '.active' class, reveal the menu */
   .navbarTop ul.active {
     display: flex;
   }
 }
 
-/* --- Updated Side Nav Toggle Layout --- */
+/* Updated Side Nav Toggle Layout */
 .side-nav-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
   position: sticky;
-  z-index: 110;         /* HIGHEST LAYER: Keeps it on top of everything so links don't hide it */
+  z-index: 110;
   color: var(--text-color);
   background: none;
   padding: 1rem;
@@ -863,7 +848,7 @@ footer{
   transition: left 0.3s ease, background-color 0.3s ease;
 }
 
-/* --- The Morphing Triangle Arrowhead --- */
+/* The Triangle Arrowhead */
 .side-hamburger {
   position: relative;
   display: block;
@@ -881,24 +866,22 @@ footer{
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Clear out the previous pseudo-elements since they aren't needed */
 .side-hamburger::before,
 .side-hamburger::after {
   content: none; 
 }
 
-/* --- ACTIVE STATE: Rotate to point Left --- */
 .side-nav-toggle.active .side-hamburger {
   /* Spins 180 degrees to face left and shifts to counter border geometry */
   transform: rotate(180deg) translateX(7px); 
 }
 
-/* Smooth layout animations */
+/* layout animations */
 .myWorkNavbarSide.open {
   left: 0 !important;
 }
 
-/* --- 4. The JavaScript Toggle States --- */
+/* The JavaScript Toggle States */
 /* Slides sidebar out */
 .myWorkNavbarSide.open {
   left: 0 !important;
@@ -910,13 +893,12 @@ footer{
 }
 
 
-/* --- 5. Clean up Mobile Specifics --- */
 @media screen and (max-width: 768px) {
   .myWorkNavbarSide {
     border-bottom: none !important;
   }
   .myWorkNavlinks {
-    flex-direction: column !important; /* Overrides your mobile horizontal flex layout */
+    flex-direction: column !important; /* Overrides mobile horizontal flex layout */
   }
   .myWorkNavlinks li {
     text-align: left !important;
