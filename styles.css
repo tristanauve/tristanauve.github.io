@@ -314,6 +314,13 @@ button:hover{
     text-align: center;
 }
 
+#container-showreel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25vh;
+}
+
 .box-project-deathtrip{
     display: flex;
     flex-direction: column;
